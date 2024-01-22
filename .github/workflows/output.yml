@@ -1,8 +1,0 @@
-name: Output information
-on: workflow_dispatch # this allows to trigger the workflow manaually
-jobs:
-  info:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Output Github Context # will output the meta info that's automatically passed into these jobs and steps and it's called context
-        run: echo "${{ toJSON(github) }}" # "${{}}" signals to github that it should be treated as text instead we wanna access some metadata made avaialble by github
