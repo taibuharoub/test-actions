@@ -1,0 +1,16 @@
+name: Test Project
+on: [push, workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code # download code from the repository
+        uses: actions/checkout@v3
+      - name: Install NodeJS # nodejs is already installed but will show how to configure actions
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependencies
+        run: npm ci # ci ensures that we're always using the exact versions we used during development
+      - name: Run tests
+        run: npm test
