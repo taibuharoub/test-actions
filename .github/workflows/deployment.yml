@@ -14,8 +14,8 @@ jobs:
         run: npm ci # ci ensures that we're always using the exact versions we used during development
       - name: Run tests
         run: npm test
-  deploy:
-    # needs: test
+  deploy: # adding multiple jobs
+    needs: test # clarifies that this job needs the the test job to have finished before this job starts, to wait for multiple jobs to finish use [test, job2, job3, ...]
     runs-on: ubuntu-latest
     steps:
       - name: Get code
